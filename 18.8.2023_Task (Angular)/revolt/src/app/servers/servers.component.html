@@ -1,0 +1,35 @@
+<h3>
+    List of Servers
+</h3>
+
+<p>
+    Server with Number  {{getServerId()}} is currently {{getServerStatus()}}
+</p>
+
+<label>Server Name  :   </label>
+<!-- <input type="text" class="form-control"
+(input) ="onserverNameEntry($event)" [disabled]="!addNewServer">
+-->
+
+<input type="text" [(ngModel)]="servername">
+<p >{{servername}}</p> 
+
+<button class="btn btn-primary" 
+[disabled] = "!addNewServer"
+(click)="onserverCreation()"
+>
+Add new server
+</button>
+
+
+<button class ="btn btn-warning"
+[disabled] ="!addNewServer"
+(click)="serverremove()">Remove the server</button>
+<p *ngIf="serverCreated =='created';else beforeserve">{{serverCreated}}</p>
+<ng-template #beforeserve>
+    <p>{{serverCreated}}</p>
+</ng-template>
+
+
+<p>{{addNewServer}} with string interpolation</p>
+<p [innerText]="addNewServer">string </p>
