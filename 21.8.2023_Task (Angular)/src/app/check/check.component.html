@@ -1,0 +1,20 @@
+
+<div class="container bg-success text-center mt-5">
+    <h2><u>Temperature Conversion</u></h2>
+    <div class="form-group mt-3 ">
+      <label for="temperature">Temperature:</label>
+      <input type="number" class="form-control" id="temperature" [(ngModel)]="temperature">
+    </div>
+    <div class="form-group mt-3">
+      <label for="unit">Unit:</label>
+      <select class="form-control" id="unit" [(ngModel)]="selectedUnit">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+      </select>
+    </div>
+    <button class="btn btn-primary mt-3" (click)="convert()">Convert</button>
+    <div class="result mt-3" *ngIf="convertedTemperature !== null">
+      Converted Temperature: {{ convertedTemperature }} {{ selectedUnit === 'celsius' ? '°C' : '°F' }}
+    </div>
+  </div>
+  
